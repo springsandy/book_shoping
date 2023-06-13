@@ -1,0 +1,13 @@
+.header {
+  top: 0;
+  width: 100%;
+}
+  
+.loge {
+  text-align: center;
+}
+  
+.loge > a {
+  text-decoration: none;
+  color: black;
+}
