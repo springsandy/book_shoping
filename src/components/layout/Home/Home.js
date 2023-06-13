@@ -1,9 +1,9 @@
-import Header from "../Header/Header";
+import './Home.css';
 
 const Home = () => {
   return (
     <div class="bodyDiv">
-      <Header />
+      <p>여기는 HOME입니다ㅏ.</p>
     </div>
   );
 }
