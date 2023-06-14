@@ -1,9 +1,14 @@
 import './Home.css';
+import Search from '../Search/Search';
 
 const Home = () => {
   return (
     <div class="bodyDiv">
-      <p>여기는 HOME입니다ㅏ.</p>
+
+      <div class="searchDiv">
+        <Search />
+      </div>
+
     </div>
   );
 }
