@@ -1,9 +1,13 @@
 const mysql = require('mysql'); 
 
 const config = {
+  // host: "localhost",
+  // user: "root",
+  // password: "apmsetup",
+  // database: "bookShoping",
   host: "localhost",
   user: "root",
-  password: "apmsetup",
+  password: "1234",
   database: "bookShoping",
 }
 

@@ -27,7 +27,6 @@ const GoogleButton = () => {
   }, []);
 
   const onSuccess = ( res ) => {
-    console.log(res);
     axios.post(`http://localhost:8000/user/signup`, {
       email: res.profileObj.email,
       name: res.profileObj.name
@@ -38,6 +37,7 @@ const GoogleButton = () => {
       } else {
         alert('회원가입되었습니다.')
       }
+      window.location.href='http://localhost:3000/';
     })
     .catch((err) => {
       console.log(err)
