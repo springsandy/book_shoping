@@ -10,4 +10,4 @@ app.use(express.urlencoded({extended: true}));
 app.use('/user', user);
 app.use('/favorite', favorite);
 
-app.listen(8000, () => console.log(''));
+app.listen(8000, () => console.log('server start'));
