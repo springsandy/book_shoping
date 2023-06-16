@@ -1,5 +1,5 @@
 const express = require('express');
-const conn = require('./db')().db()
+const conn = require('./db')().db();
 const app = express();
 
 app.get('/', (req, res) => {
