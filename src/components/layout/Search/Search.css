@@ -5,7 +5,7 @@
   transform: translateX(-50%);
 }
   
-input {
+.input {
   width: 100%;
   border: 1px solid #bbb;
   border-radius: 8px;
@@ -13,7 +13,7 @@ input {
   font-size: 14px;
 }
   
-img {
+.img {
   position: absolute;
   width: 17px;
   top: 10px;
