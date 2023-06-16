@@ -1,0 +1,46 @@
+.conatiner{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+    margin-left: 3rem;
+}
+.boxImgDiv {
+    width: 25%;
+    height: 16%;
+}
+.boxImg {
+    aspect-ratio: 9/16;
+    max-width: 100%;
+}
+.infoContainer{
+    margin-left: 1rem;
+}
+.title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.wrapCategory{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+.category{
+    margin-left: 3rem;
+}
+.description{
+    margin-left: 1rem;
+}
+.main{
+    margin-left: 1rem;
+}
+.showMap{
+    margin-top: 3rem;
+}
+.showMapText{
+    color: black;
+    font-weight: bold;
+}
+.star{
+    flex: 2;
+    text-align: end;
+}
