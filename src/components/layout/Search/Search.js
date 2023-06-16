@@ -18,7 +18,6 @@ const Search = () => {
       }
     })
     .then((res) => {
-      console.log(res.data)
       setDataList(res.data)
     })
     .catch((err) => {

@@ -5,15 +5,17 @@
     margin-left: 3rem;
 }
 .boxImgDiv {
-    width: 25%;
-    height: 16%;
+    flex: 1.1;
+
 }
 .boxImg {
     aspect-ratio: 9/16;
     max-width: 100%;
+    height: 70%;
 }
 .infoContainer{
     margin-left: 1rem;
+    flex: 2;
 }
 .title{
     font-size: 2rem;

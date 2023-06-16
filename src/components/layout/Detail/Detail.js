@@ -1,48 +1,60 @@
 import { useParams, Link } from 'react-router-dom';
 import styles from './Detail.module.css';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Detail = () => {
   const params = useParams()
-  const id = params.id
+  const isbn = params.isbn
   const [info, setInfo] = useState([])
-  const test = [{id: 1, title:'식당1' , img:'https://cdn.crowdpic.net/detail-thumb/thumb_d_2F583E5543F7E19139C6FCFFBF9607A6.jpg', category: '한식', description:'safafsaff', main:'menu1', lat: 10.99835602, lng: 77.01502627}, {id: 2, title:'식당2', img:'https://cdn.crowdpic.net/detail-thumb/thumb_d_2F583E5543F7E19139C6FCFFBF9607A6.jpg', category: '양식', description:'asdddddddddddddddddddddddd', main:'menu2', lat: 10.99835602, lng: 77.01502627}];
+  var client_id = 'IB7DxzurUvjMgJGnx9FG';
+  var client_secret = 'XJ5PWY1j8u';
+  
   const handleInfo = async () => {
-    //해당 ID의 info 불러오기
-    // setCards()
-    setInfo(test[id-1])
+    // https://cors-anywhere.herokuapp.com/corsdemo
+    axios.get('https://cors-anywhere.herokuapp.com/https://openapi.naver.com/v1/search/book_adv.json?d_isbn='+encodeURI(isbn), {
+      headers: {
+        'X-Naver-Client-Id':client_id, 
+        'X-Naver-Client-Secret': client_secret
+      }
+    })
+    .then((res) => {
+      setInfo(res.data.items[0])
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
   
   useEffect(() => {
     handleInfo()
-    console.log(id)
   }, [])
   
   return(
     <div className={styles.conatiner}>
       <div className={styles.boxImgDiv}>
-        <img className={styles.boxImg} src={info.img} />
+        <img className={styles.boxImg} src={info.image} />
       </div>
       <div className={styles.infoContainer}>
         <div className={styles.wrapCategory}>
           <div className={styles.title}>{info.title}</div>
-          <div className={styles.star}>별</div>
+          {/* <div className={styles.star}>별</div> */}
         </div>
         <div className={styles.wrapCategory}>
-          <div className={styles.infoTitle}>종류</div>
-          <div className={styles.category}>{info.category}</div>
+          <div className={styles.infoTitle}>저자 이름</div>
+          <div className={styles.category}>{info.author}</div>
         </div>
         <div className={styles.wrapCategory}>
-          <div className={styles.infoTitle}>식당 소개</div>
+          <div className={styles.infoTitle}>출판사</div>
+          <div className={styles.category}>{info.publisher}</div>
+        </div>
+        <div className={styles.wrapCategory}>
+          <div className={styles.infoTitle}>책 줄거리</div>
           <div className={styles.description}>{info.description}</div>
         </div>
-        <div className={styles.wrapCategory}>
-          <div className={styles.infoTitle}>메인 메뉴</div>
-          <div className={styles.main}>{info.main}</div>
-        </div>
         <div className={styles.showMap}>
-          <Link to={`/map/${info.id}`} className={styles.showMapText} key={info.id} target='_blank' width='50%' height='50%' >
-          위치 보기
+          <Link to={info.link} className={styles.showMapText} key={info.id} target='_blank' width='50%' height='50%' >
+           책 구매하러 가기
           </Link>
         </div>
       </div>

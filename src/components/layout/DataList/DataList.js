@@ -21,13 +21,13 @@ const DataList = ({ dataList }) =>  {
               <Link to={`/detail/${book.isbn}`} className={ styles.Link } key={book.isbn} >
                 {/* <Link to={`/detail`} className={ styles.Link } key={card.id} > */}
                 {console.log(book.image)}
-                  <Card
+                  <Book
                     key={book.id}
                     title={book.title}
                     img={book.image}
-                    category={book.category}
+                    publisher={book.publisher}
                     description={book.description}
-                    main={book.main}
+                    link={book.link}
                   />
               </Link>
             )
@@ -38,7 +38,7 @@ const DataList = ({ dataList }) =>  {
   );
 }
 
-const Card = ({title, img, category, description, main}) => {
+const Book = ({title, img, publisher, description, link}) => {
   return(
     <div className={styles.boxDiv}>
       <div className={styles.boxImgDiv}>
@@ -46,7 +46,7 @@ const Card = ({title, img, category, description, main}) => {
       </div>
       <div className={styles.wrapDiv}>
         <div className={styles.boxTitleDiv}><span className={ styles.boxTitle }>{title}</span></div>
-        <div className={ styles.infocategory }>{category}</div>
+        <div className={ styles.infocategory }>{publisher}</div>
       </div>
       {/* <div className={styles.boxTitleDiv}><span className={ styles.boxTitle }>{props.title}</span></div>
       <div className={ styles.infocategory }>{category}</div> */}
