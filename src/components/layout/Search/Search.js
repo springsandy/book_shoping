@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Search.css';
+import DataList from '../DataList/DataList';
 import axios from 'axios';
 
 const Search = () => {
@@ -23,6 +24,19 @@ const Search = () => {
     .catch((err) => {
       console.log(err)
     })
+  }
+
+  if (dataList != null) {
+    return (
+      <div>
+        <div className="search">
+          <input id="searchText" type="text" placeholder="검색어 입력" />
+          <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" onClick={search_button} />
+        </div>
+
+        <DataList dataList={dataList} />
+      </div>
+    )
   }
 
   return (

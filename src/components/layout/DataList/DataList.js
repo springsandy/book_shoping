@@ -2,13 +2,10 @@ import styles from './DataList.module.css';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const DataList = () =>  {
-  const [cards, setCards] = useState([])
-  const test = [{id: 1, title:'식당1' , img:'https://cdn.crowdpic.net/detail-thumb/thumb_d_2F583E5543F7E19139C6FCFFBF9607A6.jpg', category: '한식', description:'safafsaff', main:'menu1', lat: 10.99835602, lng: 77.01502627}, {id: 2, title:'식당2', img:'https://cdn.crowdpic.net/detail-thumb/thumb_d_2F583E5543F7E19139C6FCFFBF9607A6.jpg', category: '양식', description:'asdddddddddddddddddddddddd', main:'menu2', lat: 10.99835602, lng: 77.01502627}];
-  const handleCardList = async () => {
-    //목록 불러오기
-    // setCards()
-    setCards(test)
+const DataList = ({ dataList }) =>  {
+  const [books, setBooks] = useState([])
+  const handleCardList = () => {
+    setBooks(dataList.items)
   }
 
   useEffect(() => {
@@ -19,18 +16,18 @@ const DataList = () =>  {
     <section className={ styles.section }>
       <div className={ styles.boxWrapDiv }>
         {
-          cards.map(function(card){
+          books.map(function(book){
             return(
-              <Link to={`/detail/${card.id}`} className={ styles.Link } key={card.id} >
+              <Link to={`/detail/${book.isbn}`} className={ styles.Link } key={book.isbn} >
                 {/* <Link to={`/detail`} className={ styles.Link } key={card.id} > */}
-                {console.log(card.img)}
+                {console.log(book.image)}
                   <Card
-                    key={card.id}
-                    title={card.title}
-                    img={card.img}
-                    category={card.category}
-                    description={card.description}
-                    main={card.main}
+                    key={book.id}
+                    title={book.title}
+                    img={book.image}
+                    category={book.category}
+                    description={book.description}
+                    main={book.main}
                   />
               </Link>
             )
